@@ -1,0 +1,32 @@
+
+from sqlalchemy.orm import Session
+from . import models, schemas
+
+def create_{{ model_name_snake }}(db: Session, {{ model_name_snake }}: schemas.{{ model_name }}Create):
+    db_{{ model_name_snake }} = models.{{ model_name }}(**{{ model_name_snake }}.dict())
+    db.add(db_{{ model_name_snake }})
+    db.commit()
+    db.refresh(db_{{ model_name_snake }})
+    return db_{{ model_name_snake }}
+
+def get_{{ model_name_snake }}(db: Session, {{ model_name_snake }}_id: int):
+    return db.query(models.{{ model_name }}).filter(models.{{ model_name }}.id == {{ model_name_snake }}_id).first()
+
+def get_{{ model_name_snake }}s(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.{{ model_name }}).offset(skip).limit(limit).all()
+
+def update_{{ model_name_snake }}(db: Session, {{ model_name_snake }}_id: int, {{ model_name_snake }}: schemas.{{ model_name }}Update):
+    db_{{ model_name_snake }} = db.query(models.{{ model_name }}).filter(models.{{ model_name }}.id == {{ model_name_snake }}_id).first()
+    if db_{{ model_name_snake }}:
+        for key, value in {{ model_name_snake }}.dict(exclude_unset=True).items():
+            setattr(db_{{ model_name_snake }}, key, value)
+        db.commit()
+        db.refresh(db_{{ model_name_snake }})
+    return db_{{ model_name_snake }}
+
+def delete_{{ model_name_snake }}(db: Session, {{ model_name_snake }}_id: int):
+    db_{{ model_name_snake }} = db.query(models.{{ model_name }}).filter(models.{{ model_name }}.id == {{ model_name_snake }}_id).first()
+    if db_{{ model_name_snake }}:
+        db.delete(db_{{ model_name_snake }})
+        db.commit()
+    return db_{{ model_name_snake }}
