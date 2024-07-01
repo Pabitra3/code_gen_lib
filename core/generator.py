@@ -174,4 +174,6 @@ class CodeGenerator:
         if 'model_name' in context:
             context['model_name_snake'] = camel_to_snake(context['model_name'])
         return context
-    
+    def generate_framework_config(self, framework, output_path, **kwargs):
+        template_name = f"framework_configs/{framework}_config"
+        self.generate_code(template_name, output_path, **kwargs)
