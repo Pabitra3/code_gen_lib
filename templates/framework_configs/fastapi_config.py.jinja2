@@ -1,0 +1,15 @@
+
+from pydantic import BaseSettings
+
+class Settings(BaseSettings):
+    APP_NAME: str = "{{ app_name }}"
+    DEBUG: bool = {{ debug }}
+    DATABASE_URL: str = "{{ database_url }}"
+    SECRET_KEY: str = "{{ secret_key }}"
+    ALGORITHM: str = "{{ algorithm }}"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = {{ access_token_expire_minutes }}
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()

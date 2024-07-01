@@ -1,0 +1,28 @@
+
+from celery import Celery
+
+app = Celery('{{ project_name }}',
+             broker='{{ broker_url }}',
+             backend='{{ backend_url }}',
+             include=['{{ project_name }}.tasks'])
+
+app.conf.update(
+    result_expires={{ result_expires }},
+    task_serializer='json',
+    accept_content=['json'],
+    result_serializer='json',
+    timezone='{{ timezone }}',
+    enable_utc=True,
+)
+
+app.conf.beat_schedule = {
+    {% for task_name, task_config in scheduled_tasks.items() %}
+    '{{ task_name }}': {
+        'task': '{{ task_config.task }}',
+        'schedule': {{ task_config.schedule }},
+        {% if task_config.args is defined %}
+        'args': {{ task_config.args }},
+        {% endif %}
+    },
+    {% endfor %}
+}
