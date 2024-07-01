@@ -5,6 +5,7 @@ from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 from .template_manager import TemplateManager
 from .config_manager import ConfigManager
 from ..utils.string_utils import camel_to_snake
+from .exceptions import ConfigError, TemplateError, OutputError
 
 class CodeGenerationError(Exception):
     """Base exception for code generation errors."""
