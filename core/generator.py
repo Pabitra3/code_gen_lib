@@ -6,6 +6,7 @@ from .template_manager import TemplateManager
 from .config_manager import ConfigManager
 from ..utils.string_utils import camel_to_snake
 from .exceptions import ConfigError, TemplateError, OutputError
+from ..utils.file_operations import write_file, read_yaml, ensure_directory, list_files
 
 class CodeGenerationError(Exception):
     """Base exception for code generation errors."""
@@ -89,12 +90,9 @@ class CodeGenerator:
             # Render the template
             rendered_content = self.template_manager.render_template(template_name, context)
             
-            # Ensure the output directory exists
-            os.makedirs(os.path.dirname(output_path), exist_ok=True)
-            
-            # Write the rendered content to the output file
-            with open(output_path, 'w') as output_file:
-                output_file.write(rendered_content)
+            # Ensure the output directory exists and write the file
+            ensure_directory(os.path.dirname(output_path))
+            write_file(output_path, rendered_content)
             
             print(f"Generated code saved to {output_path}")
         
