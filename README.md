@@ -53,31 +53,25 @@ Install the Code Generation Library using pip:
             }
         generator.configure_framework('flask', flask_config, 'output/app')
 
+Documentation
+   For detailed usage instructions, API reference, and examples, please refer to our documentation.
 
-## Documentation
+   1. Installation Guide
+   2.Usage Guide
+   3.API Reference
+   4.Database Templates
+   5.Framework Configurations
 
-    For detailed usage instructions, API reference, and examples, please refer to our documentation.
+Contributing
+   We welcome contributions to the Code Generation Library! Please see our Contributing Guide for more details on how to get started.
 
-     1. Installation Guide
-     2. Usage Guide
-     3. API Reference
-     4. Database Templates
-     5. Framework Configurations
+License
+  This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Contributing
+Support
+   If you encounter any problems or have any questions, please open an issue on our GitHub repository.
 
-       We welcome contributions to the Code Generation Library! Please see our Contributing Guide for more details on how to get started.
-
-##License
-
-    This project is licensed under the MIT License - see the LICENSE file for details.
-
-##Support
-
-    If you encounter any problems or have any questions, please open an issue on our GitHub repository.
-
-## Acknowledgements
+Acknowledgements
 
        Thanks to all the contributors who have helped shape this project.
        This project was inspired by the need to automate repetitive coding tasks in modern web development.
-
