@@ -22,11 +22,12 @@ The Code Generation Library is a powerful Python tool designed to streamline dev
 
 Install the Code Generation Library using pip:
 
-```bash
+    ```bash
      pip install code_gen_lib
 
-   Quick Start
-    Here's a simple example to get you started:
+## Quick Start
+   Here's a simple example to get you started:
+         
          from code_gen_lib import CodeGenerator
 
          # Initialize the generator
@@ -53,7 +54,7 @@ Install the Code Generation Library using pip:
             }
         generator.configure_framework('flask', flask_config, 'output/app')
 
-Documentation
+## Documentation
    For detailed usage instructions, API reference, and examples, please refer to our documentation.
 
    1. Installation Guide
@@ -62,16 +63,16 @@ Documentation
    4.Database Templates
    5.Framework Configurations
 
-Contributing
+## Contributing
    We welcome contributions to the Code Generation Library! Please see our Contributing Guide for more details on how to get started.
 
-License
+## License
   This project is licensed under the MIT License - see the LICENSE file for details.
 
-Support
+## Support
    If you encounter any problems or have any questions, please open an issue on our GitHub repository.
 
-Acknowledgements
+## Acknowledgements
 
-       Thanks to all the contributors who have helped shape this project.
-       This project was inspired by the need to automate repetitive coding tasks in modern web development.
+   Thanks to all the contributors who have helped shape this project.
+   This project was inspired by the need to automate repetitive coding tasks in modern web development.
